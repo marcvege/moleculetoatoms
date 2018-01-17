@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb5a9324-c703-4c32-9139-6d43ba37cf7a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Formula.java" afterPath="$PROJECT_DIR$/src/main/java/Formula.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ParseMolecule.java" afterPath="$PROJECT_DIR$/src/main/java/ParseMolecule.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ParseMoleculeShould.java" afterPath="$PROJECT_DIR$/src/test/java/ParseMoleculeShould.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ParseMolecule.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,8 +27,8 @@
           <file leaf-file-name="ParseMoleculeShould.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/ParseMoleculeShould.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="229">
-                  <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                <state relative-caret-position="255">
+                  <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -44,8 +43,8 @@
           <file leaf-file-name="ParseMolecule.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/ParseMolecule.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+                <state relative-caret-position="105">
+                  <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -56,9 +55,11 @@
           <file leaf-file-name="Formula.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Formula.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="152">
-                  <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-                  <folding />
+                <state relative-caret-position="228">
+                  <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -89,8 +90,8 @@
         <option value="$PROJECT_DIR$/src/main/java/A.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/ATest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ParseMolecule.java" />
         <option value="$PROJECT_DIR$/src/test/java/ParseMoleculeShould.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ParseMolecule.java" />
         <option value="$PROJECT_DIR$/src/main/java/Formula.java" />
       </list>
     </option>
@@ -195,7 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ParseMoleculeShould">
+  <component name="RunManager" selected="JUnit.ParseMoleculeShould.return_empty_map_if_formula_is_empty">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -364,9 +365,9 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ParseMoleculeShould" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ParseMoleculeShould.return_empty_map_if_formula_is_null" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ParseMoleculeShould.return_empty_map_if_formula_is_empty" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ParseMoleculeShould.return_empty_map_if_formula_is_empty" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ParseMoleculeShould" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ParseMoleculeShould.return_empty_map_if_formula_is_null" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ParseMoleculeShould.parse_H2O" />
       </list>
     </recent_temporary>
@@ -386,7 +387,7 @@
       <updated>1516174903287</updated>
       <workItem from="1516174907676" duration="47000" />
       <workItem from="1516175049704" duration="1511000" />
-      <workItem from="1516225885593" duration="4052000" />
+      <workItem from="1516225885593" duration="4519000" />
     </task>
     <servers />
   </component>
@@ -406,12 +407,15 @@
     <history-entry file="ParseMoleculeShould_return_empty_map_if_formula_is_empty - 2018.01.18 at 00h 00m 19s.xml">
       <configuration name="ParseMoleculeShould.return_empty_map_if_formula_is_empty" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ParseMoleculeShould_return_empty_map_if_formula_is_empty - 2018.01.18 at 00h 09m 03s.xml">
+      <configuration name="ParseMoleculeShould.return_empty_map_if_formula_is_empty" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="ParseMoleculeShould_return_empty_map_if_formula_is_null - 2018.01.18 at 00h 00m 57s.xml">
       <configuration name="ParseMoleculeShould.return_empty_map_if_formula_is_null" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5610000" />
+    <option name="totallyTimeSpent" value="6077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -512,8 +516,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ParseMolecule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        <state relative-caret-position="105">
+          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -522,16 +526,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Formula.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="228">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ParseMoleculeShould.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
