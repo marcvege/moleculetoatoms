@@ -8,6 +8,18 @@ import static org.hamcrest.core.Is.is;
 
 public class ParseMoleculeShould {
     @Test
+    void return_empty_map_if_formula_is_empty() {
+        Map<String, Integer> value = ParseMolecule.getAtoms("");
+        assertThat(value.size(), is(0));
+    }
+
+    @Test
+    void return_empty_map_if_formula_is_null() {
+        Map<String, Integer> value = ParseMolecule.getAtoms(null);
+        assertThat(value.size(), is(0));
+    }
+
+    @Test
     void parse_H2O() {
         Map<String, Integer> expected = new HashMap<String, Integer>() {
             {
@@ -16,6 +28,6 @@ public class ParseMoleculeShould {
             }
         };
         Map<String, Integer> value = ParseMolecule.getAtoms("H2O");
-        assertThat(expected, is(value));
+        assertThat(value, is(expected));
     }
 }
