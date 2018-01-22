@@ -12,12 +12,8 @@ public class Formula extends Atomic {
 
     private void parse(String value) {
         if (this.isEmpty()) return;
-        int limitAtom = 1;
-        while (limitAtom < value.length() && !Character.isUpperCase(value.charAt(limitAtom))) {
-            limitAtom++;
-        }
-        first = new Atom(value.substring(0, limitAtom));
-        rest = new Formula(value.substring(limitAtom));
+        first = Atom.extractAtom(value).get();
+        rest = new Formula(value.substring(first.value.length()));
     }
 
     public Map<String, Integer> getAtoms(Map<String, Integer> counter) {
