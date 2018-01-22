@@ -30,4 +30,17 @@ public class ParseMoleculeShould {
         Map<String, Integer> value = ParseMolecule.getAtoms("H2O");
         assertThat(value, is(expected));
     }
+
+    @Test
+    void parse_H2OCl3() {
+        Map<String, Integer> expected = new HashMap<String, Integer>() {
+            {
+                put("H", 2);
+                put("O", 1);
+                put("Cl", 3);
+            }
+        };
+        Map<String, Integer> value = ParseMolecule.getAtoms("H2OCl3");
+        assertThat(value, is(expected));
+    }
 }

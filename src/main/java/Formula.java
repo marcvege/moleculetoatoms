@@ -25,10 +25,6 @@ public class Formula extends Atomic {
         return rest.getAtoms(first.getAtoms(counter));
     }
 
-    public String getValue() {
-        return value;
-    }
-
     public boolean isEmpty() {
         return value == null || value.length() == 0;
     }
