@@ -1,20 +1,35 @@
-import java.util.HashMap;
 import java.util.Map;
 
-public class Formula {
-    private String formula;
+public class Formula extends Atomic {
 
-    public Formula(String formula) {
-        this.formula = formula;
+    protected Atomic first;
+    protected Atomic rest;
+
+    public Formula(String value) {
+        super(value);
+        parse(value);
     }
 
-    public Map<String,Integer> getAtoms(HashMap<String, Integer> counter) {
-        if(this.isEmpty()) return counter;
-//        return formula.rest().getAtoms(counter.add(formula.first().getAtoms()))
-        return null;
+    private void parse(String value) {
+        if (this.isEmpty()) return;
+        int limitAtom = 1;
+        while (limitAtom < value.length() && !Character.isUpperCase(value.charAt(limitAtom))) {
+            limitAtom++;
+        }
+        first = new Atom(value.substring(0, limitAtom));
+        rest = new Formula(value.substring(limitAtom));
+    }
+
+    public Map<String, Integer> getAtoms(Map<String, Integer> counter) {
+        if (this.isEmpty()) return counter;
+        return rest.getAtoms(first.getAtoms(counter));
+    }
+
+    public String getValue() {
+        return value;
     }
 
     public boolean isEmpty() {
-        return formula == null || formula.length() == 0;
+        return value == null || value.length() == 0;
     }
 }
