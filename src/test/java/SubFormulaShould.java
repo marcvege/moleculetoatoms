@@ -27,4 +27,12 @@ class SubFormulaShould {
         assertThat(subformula.number, is(3));
         assertThat(subformula.value, is("(O2(Cl3H2O))3"));
     }
+
+    @Test
+    void parse_two_subformulas() {
+        SubFormula subformula = SubFormula.extract("(O2(Cl3H2O))3(H2O").get();
+        assertThat(subformula.formula, is("O2(Cl3H2O)"));
+        assertThat(subformula.number, is(3));
+        assertThat(subformula.value, is("(O2(Cl3H2O))3"));
+    }
 }

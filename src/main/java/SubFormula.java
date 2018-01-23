@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SubFormula extends Atomic{
+public class SubFormula extends Atomic {
     private static final Pattern p = Pattern.compile("^([(])(.*)([)])(\\d*)(.*)");
     protected String formula;
     protected int number;
@@ -32,12 +32,29 @@ public class SubFormula extends Atomic{
     }
 
     public static Optional<SubFormula> extract(String formula) {
-        Matcher m = p.matcher(formula);
+        String subformula = getSubFormula(formula);
+        Matcher m = p.matcher(subformula);
         if (m.matches()) {
             return Optional.of(parse(m));
         } else {
             return Optional.empty();
         }
+    }
+
+    private static String getSubFormula(String formula) {
+        int index = 1;
+        if (formula.startsWith("(")) {
+            int opens = 1;
+            while (opens > 0) {
+                char c = formula.charAt(index);
+                if (c == '(') opens++;
+                if (c == ')') opens--;
+                index++;
+            }
+            while (index < formula.length() && Character.isDigit(formula.charAt(index))) index++;
+        }
+
+        return formula.substring(0, index);
     }
 
     private static SubFormula parse(Matcher m) {
