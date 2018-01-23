@@ -17,4 +17,11 @@ class FormulaShould {
         assertThat(formula.first, is((Atomic)new Atom("H2", "H", 2)));
         assertThat(formula.rest, is((Atomic)new Formula("O")));
     }
+
+    @Test
+    void with_formula() {
+        Formula formula = new Formula("H2(O2(Cl3H2O))3");
+        assertThat(formula.first, is((Atomic)new Atom("H2", "H", 2)));
+        assertThat(formula.rest, is((Atomic)new Formula("(O2(Cl3H2O))3")));
+    }
 }

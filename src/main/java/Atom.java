@@ -15,20 +15,20 @@ public class Atom extends Atomic {
         this.number = number;
     }
 
-    public static Optional<Atom> extractAtom(String formula){
+    public static Optional<Atomic> extract(String formula) {
         Matcher m = p.matcher(formula);
-        if(m.matches()){
+        if (m.matches()) {
             return Optional.of(parse(m));
-        }else{
+        } else {
             return Optional.empty();
         }
     }
 
     private static Atom parse(Matcher m) {
-             String value = m.group(1) +m.group(2);
-            String element = m.group(1);
-            int number =  ("".equals(m.group(2)))?1: Integer.parseInt(m.group(2));
-            return new Atom(value, element, number);
+        String value = m.group(1) + m.group(2);
+        String element = m.group(1);
+        int number = ("".equals(m.group(2))) ? 1 : Integer.parseInt(m.group(2));
+        return new Atom(value, element, number);
     }
 
     @Override

@@ -12,7 +12,8 @@ public class Formula extends Atomic {
 
     private void parse(String value) {
         if (this.isEmpty()) return;
-        first = Atom.extractAtom(value).get();
+        first = Atom.extract(value).
+                orElseGet(() -> SubFormula.extract(value).get());
         rest = new Formula(value.substring(first.value.length()));
     }
 
