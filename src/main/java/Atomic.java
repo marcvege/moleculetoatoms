@@ -8,7 +8,7 @@ public abstract class Atomic {
         this.value = value;
     }
 
-    abstract Map<String, Integer> getAtoms(Map<String, Integer> counter);
+    abstract Map<String, Integer> getAtoms(Map<String, Integer> counter) throws Exception;
 
     @Override
     public boolean equals(Object o) {

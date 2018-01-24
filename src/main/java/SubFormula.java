@@ -4,8 +4,17 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.lang.String.valueOf;
+
 public class SubFormula extends Atomic {
-    private static final Pattern p = Pattern.compile("^([(])(.*)([)])(\\d*)(.*)");
+    private static final Map<String, Pattern> patternMap;
+    static
+    {
+        patternMap = new HashMap<>();
+        patternMap.put("(",Pattern.compile("^([(])(.*)([)])(\\d*)(.*)"));
+        patternMap.put("{",Pattern.compile("^([{])(.*)([}])(\\d*)(.*)"));
+        patternMap.put("[",Pattern.compile("^([\\[])(.*)([\\]])(\\d*)(.*)"));
+    }
     protected String formula;
     protected int number;
 
@@ -17,7 +26,7 @@ public class SubFormula extends Atomic {
     }
 
     @Override
-    Map<String, Integer> getAtoms(Map<String, Integer> counter) {
+    Map<String, Integer> getAtoms(Map<String, Integer> counter) throws Exception {
         Map<String, Integer> counterFormula = (new Formula(formula)).getAtoms(new HashMap<>());
         counterFormula.forEach((key, value) -> {
             Integer counterKey = counter.get(key);
@@ -31,9 +40,9 @@ public class SubFormula extends Atomic {
         return counter;
     }
 
-    public static Optional<SubFormula> extract(String formula) {
-        String subformula = getSubFormula(formula);
-        Matcher m = p.matcher(subformula);
+    public static Optional<Atomic> extract(String formula, char open, char close) {
+        String subformula = getSubFormula(formula, open, close);
+        Matcher m = patternMap.get(valueOf(open)).matcher(subformula);
         if (m.matches()) {
             return Optional.of(parse(m));
         } else {
@@ -41,14 +50,15 @@ public class SubFormula extends Atomic {
         }
     }
 
-    private static String getSubFormula(String formula) {
+    private static String getSubFormula(String formula, char open, char close) {
         int index = 1;
-        if (formula.startsWith("(")) {
+        char firstChar = formula.charAt(0);
+        if (open == firstChar) {
             int opens = 1;
-            while (opens > 0) {
+            while (index < formula.length() && opens > 0) {
                 char c = formula.charAt(index);
-                if (c == '(') opens++;
-                if (c == ')') opens--;
+                if (c == open) opens++;
+                if (c == close) opens--;
                 index++;
             }
             while (index < formula.length() && Character.isDigit(formula.charAt(index))) index++;
