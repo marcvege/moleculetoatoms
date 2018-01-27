@@ -21,7 +21,7 @@ public class Formula extends Atomic {
     }
 
 
-    public Map<String, Integer> getAtoms(Map<String, Integer> counter) throws Exception {
+    public Map<String, Integer> getAtoms(Map<String, Integer> counter)  {
         if (this.isEmpty()) return counter;
         return rest.getAtoms(first.getAtoms(counter));
     }

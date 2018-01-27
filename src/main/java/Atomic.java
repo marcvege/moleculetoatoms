@@ -7,7 +7,7 @@ public abstract class Atomic {
         this.value = value;
     }
 
-    abstract Map<String, Integer> getAtoms(Map<String, Integer> counter) throws Exception;
+    abstract Map<String, Integer> getAtoms(Map<String, Integer> counter);
 
 
 }

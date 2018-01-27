@@ -26,7 +26,7 @@ public class SubFormula extends Atomic {
     }
 
     @Override
-    Map<String, Integer> getAtoms(Map<String, Integer> counter) throws Exception {
+    Map<String, Integer> getAtoms(Map<String, Integer> counter) {
         Map<String, Integer> counterFormula = formula.getAtoms(new HashMap<>());
         counterFormula.forEach((key, value) -> {
             Integer counterKey = counter.get(key);
