@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Atom extends Atomic {
     private static final Pattern p = Pattern.compile("^([A-Z][a-z]*)(\\d*)(.*)");
     protected String element;
-    protected int number = 1;
+    protected int number;
 
     public Atom(String value, String element, int number) {
         super(value);
