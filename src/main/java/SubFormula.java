@@ -15,19 +15,19 @@ public class SubFormula extends Atomic {
         patternMap.put("{",Pattern.compile("^([{])(.*)([}])(\\d*)(.*)"));
         patternMap.put("[",Pattern.compile("^([\\[])(.*)([\\]])(\\d*)(.*)"));
     }
-    protected String formula;
+    protected Atomic formula;
     protected int number;
 
 
     public SubFormula(String value, String formula, int number) {
         super(value);
-        this.formula = formula;
+        this.formula = new Formula(formula);
         this.number = number;
     }
 
     @Override
     Map<String, Integer> getAtoms(Map<String, Integer> counter) throws Exception {
-        Map<String, Integer> counterFormula = (new Formula(formula)).getAtoms(new HashMap<>());
+        Map<String, Integer> counterFormula = formula.getAtoms(new HashMap<>());
         counterFormula.forEach((key, value) -> {
             Integer counterKey = counter.get(key);
             if (counterKey != null) {
