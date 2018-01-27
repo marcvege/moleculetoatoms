@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class AtomShould {
+class AtomTest {
     @Test
     void create_an_empty_element() {
         Atom atom = (Atom) Atom.extract("O").get();
