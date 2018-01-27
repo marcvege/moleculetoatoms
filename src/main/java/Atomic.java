@@ -1,5 +1,3 @@
-import java.util.Map;
-
 public abstract class Atomic {
     protected String value;
 
@@ -7,7 +5,7 @@ public abstract class Atomic {
         this.value = value;
     }
 
-    abstract Map<String, Integer> getAtoms(Map<String, Integer> counter);
+    abstract AtomCounter getAtoms();
 
 
 }

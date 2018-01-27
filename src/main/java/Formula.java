@@ -1,5 +1,3 @@
-import java.util.Map;
-
 public class Formula extends Atomic {
 
     protected Atomic first;
@@ -21,9 +19,9 @@ public class Formula extends Atomic {
     }
 
 
-    public Map<String, Integer> getAtoms(Map<String, Integer> counter)  {
-        if (this.isEmpty()) return counter;
-        return rest.getAtoms(first.getAtoms(counter));
+    public AtomCounter getAtoms()  {
+        if (this.isEmpty()) return new AtomCounter();
+        return rest.getAtoms().add(first.getAtoms());
     }
 
     public boolean isEmpty() {

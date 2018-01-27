@@ -26,18 +26,8 @@ public class SubFormula extends Atomic {
     }
 
     @Override
-    Map<String, Integer> getAtoms(Map<String, Integer> counter) {
-        Map<String, Integer> counterFormula = formula.getAtoms(new HashMap<>());
-        counterFormula.forEach((key, value) -> {
-            Integer counterKey = counter.get(key);
-            if (counterKey != null) {
-                counter.put(key, counterKey + value * number);
-            } else {
-                counter.put(key, value * number);
-            }
-        });
-
-        return counter;
+    AtomCounter getAtoms() {
+        return formula.getAtoms().multiplyBy(number);
     }
 
     public static Optional<Atomic> extract(String formula, char open, char close) {
