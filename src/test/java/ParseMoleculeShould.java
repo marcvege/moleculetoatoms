@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -45,18 +44,16 @@ public class ParseMoleculeShould {
                 "As2{Be4C5[BCo3(CO2)3]2}4Cu5, As:2|B:8|Cu:5|Be:16|C:44|Co:24|O:48",
                 "{[Co(NH3)4(OH)2]3Co}(SO4)3, S:3|H:42|Co:4|N:12|O:18",
                 "{((H)2)[O]}, H:2|O:1"})
-    void return_atoms_for_valid_formulas(String formula, String atomsCount) throws Exception {
-        Map<String, Integer> expected = getCounterMap(atomsCount);
-        Map<String, Integer> value = ParseMolecule.getAtoms(formula);
-        assertThat(value, is(expected));
+    void return_atoms_for_valid_formulas(String formula, String expectedCount) throws Exception {
+        assertThat(ParseMolecule.getAtoms(formula), is(getAtoms(expectedCount)));
     }
 
-    private Map<String, Integer> getCounterMap(String atomsCount) {
+    private Map<String, Integer> getAtoms(String atomsCount) {
         return Arrays.stream(atomsCount.split("\\|"))
                 .map(s -> s.split(":"))
                 .collect(Collectors.toMap(s -> s[0], s -> Integer.parseInt(s[1])));
     }
-    
+
     @DisplayName("Negative cases")
     @ParameterizedTest(name = "\"{0}\" should throw an exception")
     @CsvSource({"pie",
@@ -67,7 +64,6 @@ public class ParseMoleculeShould {
                 "Mg(OH]2",
                 "Au5(C2H5[OH)3Li]3"})
     void throw_exception_if_no_contains_a_formula(String badFormula) throws Exception {
-        Executable parsing = () -> ParseMolecule.getAtoms(badFormula);
-        assertThrows(IllegalArgumentException.class, parsing);
+        assertThrows(IllegalArgumentException.class, () -> ParseMolecule.getAtoms(badFormula));
     }
 }
